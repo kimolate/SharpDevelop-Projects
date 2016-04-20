@@ -1,0 +1,5 @@
+C:\Users\ki\Documents\SharpDevelop Projects\Tread_Test\Tread_Test\obj\Debug\Tread_Test.csprojResolveAssemblyReference.cache
+C:\Users\ki\Documents\SharpDevelop Projects\Tread_Test\Tread_Test\bin\Debug\Tread_Test.exe
+C:\Users\ki\Documents\SharpDevelop Projects\Tread_Test\Tread_Test\bin\Debug\Tread_Test.pdb
+C:\Users\ki\Documents\SharpDevelop Projects\Tread_Test\Tread_Test\obj\Debug\Tread_Test.exe
+C:\Users\ki\Documents\SharpDevelop Projects\Tread_Test\Tread_Test\obj\Debug\Tread_Test.pdb

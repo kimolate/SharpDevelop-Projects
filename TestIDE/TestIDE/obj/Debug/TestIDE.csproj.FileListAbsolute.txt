@@ -1,0 +1,9 @@
+C:\Users\ki\Documents\SharpDevelop Projects\TestIDE\TestIDE\bin\Debug\TestIDE.exe
+C:\Users\ki\Documents\SharpDevelop Projects\TestIDE\TestIDE\bin\Debug\TestIDE.pdb
+C:\Users\ki\Documents\SharpDevelop Projects\TestIDE\TestIDE\bin\Debug\CSharpCompiler.dll
+C:\Users\ki\Documents\SharpDevelop Projects\TestIDE\TestIDE\bin\Debug\CSharpCompiler.pdb
+C:\Users\ki\Documents\SharpDevelop Projects\TestIDE\TestIDE\obj\Debug\TestIDE.csprojResolveAssemblyReference.cache
+C:\Users\ki\Documents\SharpDevelop Projects\TestIDE\TestIDE\obj\Debug\TestIDE.MainForm.resources
+C:\Users\ki\Documents\SharpDevelop Projects\TestIDE\TestIDE\obj\Debug\TestIDE.csproj.GenerateResource.Cache
+C:\Users\ki\Documents\SharpDevelop Projects\TestIDE\TestIDE\obj\Debug\TestIDE.exe
+C:\Users\ki\Documents\SharpDevelop Projects\TestIDE\TestIDE\obj\Debug\TestIDE.pdb

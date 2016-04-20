@@ -1,0 +1,8 @@
+C:\Users\ki\Documents\SharpDevelop Projects\MusicPlayer\MusicPlayer\obj\Debug\MusicPlayer.csprojResolveAssemblyReference.cache
+C:\Users\ki\Documents\SharpDevelop Projects\MusicPlayer\MusicPlayer\obj\Debug\MusicPlayer.MainForm.resources
+C:\Users\ki\Documents\SharpDevelop Projects\MusicPlayer\MusicPlayer\obj\Debug\MusicPlayer.csproj.GenerateResource.Cache
+C:\Users\ki\Documents\SharpDevelop Projects\MusicPlayer\MusicPlayer\bin\Debug\MusicPlayer.exe
+C:\Users\ki\Documents\SharpDevelop Projects\MusicPlayer\MusicPlayer\bin\Debug\MusicPlayer.pdb
+C:\Users\ki\Documents\SharpDevelop Projects\MusicPlayer\MusicPlayer\obj\Debug\MusicPlayer.exe
+C:\Users\ki\Documents\SharpDevelop Projects\MusicPlayer\MusicPlayer\obj\Debug\MusicPlayer.pdb
+C:\Users\ki\Documents\SharpDevelop Projects\MusicPlayer\MusicPlayer\obj\Debug\MusicPlayer.Resource1.resources

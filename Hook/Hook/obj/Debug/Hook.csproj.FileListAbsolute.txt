@@ -1,0 +1,7 @@
+C:\Users\ki\Documents\SharpDevelop Projects\Hook\Hook\bin\Debug\Hook.exe
+C:\Users\ki\Documents\SharpDevelop Projects\Hook\Hook\bin\Debug\Hook.pdb
+C:\Users\ki\Documents\SharpDevelop Projects\Hook\Hook\obj\Debug\Hook.csprojResolveAssemblyReference.cache
+C:\Users\ki\Documents\SharpDevelop Projects\Hook\Hook\obj\Debug\Hook.MainForm.resources
+C:\Users\ki\Documents\SharpDevelop Projects\Hook\Hook\obj\Debug\Hook.csproj.GenerateResource.Cache
+C:\Users\ki\Documents\SharpDevelop Projects\Hook\Hook\obj\Debug\Hook.exe
+C:\Users\ki\Documents\SharpDevelop Projects\Hook\Hook\obj\Debug\Hook.pdb

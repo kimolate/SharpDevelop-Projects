@@ -1,0 +1,7 @@
+C:\Users\ki\Documents\SharpDevelop Projects\DesktopIconTextnosee\DesktopIconTextnosee\obj\Debug\DesktopIconTextnosee.csprojResolveAssemblyReference.cache
+C:\Users\ki\Documents\SharpDevelop Projects\DesktopIconTextnosee\DesktopIconTextnosee\obj\Debug\DesktopIconTextnosee.MainForm.resources
+C:\Users\ki\Documents\SharpDevelop Projects\DesktopIconTextnosee\DesktopIconTextnosee\obj\Debug\DesktopIconTextnosee.csproj.GenerateResource.Cache
+C:\Users\ki\Documents\SharpDevelop Projects\DesktopIconTextnosee\DesktopIconTextnosee\bin\Debug\DesktopIconTextnosee.exe
+C:\Users\ki\Documents\SharpDevelop Projects\DesktopIconTextnosee\DesktopIconTextnosee\bin\Debug\DesktopIconTextnosee.pdb
+C:\Users\ki\Documents\SharpDevelop Projects\DesktopIconTextnosee\DesktopIconTextnosee\obj\Debug\DesktopIconTextnosee.exe
+C:\Users\ki\Documents\SharpDevelop Projects\DesktopIconTextnosee\DesktopIconTextnosee\obj\Debug\DesktopIconTextnosee.pdb

@@ -1,0 +1,5 @@
+C:\Users\ki\Documents\SharpDevelop Projects\BubleSort\BubleSort\bin\Debug\BubleSort.exe
+C:\Users\ki\Documents\SharpDevelop Projects\BubleSort\BubleSort\bin\Debug\BubleSort.pdb
+C:\Users\ki\Documents\SharpDevelop Projects\BubleSort\BubleSort\obj\Debug\BubleSort.csprojResolveAssemblyReference.cache
+C:\Users\ki\Documents\SharpDevelop Projects\BubleSort\BubleSort\obj\Debug\BubleSort.exe
+C:\Users\ki\Documents\SharpDevelop Projects\BubleSort\BubleSort\obj\Debug\BubleSort.pdb
