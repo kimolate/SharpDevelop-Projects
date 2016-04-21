@@ -104,12 +104,14 @@ namespace MusicPlayer
 			Previous.Enabled=true;
 			Next.Enabled=true;
 			PlayOrPause.Enabled=true;
+			trackTime.Enabled=true;
 			pl=new Player();
 			ListView LV=(ListView)sender;
 			string path=Application.StartupPath+@"\Music\"+LV.SelectedItems[0].Text;
 			//pl.OpenMusic(path);
 			pl.CloseMusic();//打开前，先关闭音乐
 			pl.playMusic(path);
+			timer1.Start();
 			LV.Hide();
 			panel1.Show();
 			//MessageBox.Show("hello");
@@ -120,14 +122,10 @@ namespace MusicPlayer
 			//Control ctr=this.Controls.Find("songList",true)[0];
 			ListView LV=this.Controls.Find("songList",true)[0] as ListView;
 			string path=pl.Next(LV);
-			
-
-			
-			
-			
+			timer1.Stop();
 			pl.CloseMusic();
-			
 			pl.playMusic(path);
+			timer1.Start();
 			PlayOrPause.Text="<>";
 			
 			
@@ -138,9 +136,11 @@ namespace MusicPlayer
 		{
 			ListView LV=this.Controls.Find("songList",true)[0] as ListView;
 			string path=pl.Previous(LV);
+			timer1.Stop();
 			pl.CloseMusic();
 			
 			pl.playMusic(path);
+			timer1.Start();
 			PlayOrPause.Text="<>";
 			
 			
@@ -151,6 +151,20 @@ namespace MusicPlayer
 			Button playButt=(Button)sender;
 			string status=playButt.Text;
 			playButt.Text=pl.PlayOrPause(status);
+			
+		}
+		
+		void Timer1Tick(object sender, EventArgs e)
+		{
+			string songStatus=pl.GetSongStatus ();
+			if(songStatus.IndexOf("playing")!=-1)
+			{
+			NowTime.Text=pl.GetSongTime();
+			trackTime.Value=pl.GetOriginTime()[0];
+			trackTime.Maximum=pl.GetOriginTime()[1];
+			}
+			
+			TotalTime.Text=pl.GetTotaTime();
 			
 		}
 	}

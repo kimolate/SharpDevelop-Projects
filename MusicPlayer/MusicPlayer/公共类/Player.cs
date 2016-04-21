@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using MusicPlayer;
 using System.Text;
+using System.Threading;
 
 namespace MusicPlayer.公共类
 {
@@ -30,11 +31,7 @@ namespace MusicPlayer.公共类
 		);
 		
 		
-		[DllImport("kernel32.dll", CharSet = CharSet.Auto)]
-		private static extern int GetShortPathName(
-			string lpszLongPath,
-			string shortFile,
-			int cchBuffer);
+		
 		#endregion
 		
 		public Player()
@@ -50,12 +47,68 @@ namespace MusicPlayer.公共类
 			
 		}
 		#endregion
+		
+		#region 获取歌曲状态
+		public string GetSongStatus()
+		{
+			string _temp="".PadLeft(128,' ');
+			mciSendString("status song mode",_temp,128,IntPtr.Zero);
+			_temp=_temp.Trim();
+			return _temp;
+		}
+		#endregion
+		#region 获取歌曲原始时间
+		public int[] GetOriginTime()
+		{
+			string _temp="".PadLeft(128,' ');
+			mciSendString("status song position",_temp,128,IntPtr.Zero);
+			int[] originTime=new int[2];
+			originTime[0]=int.Parse(_temp.Trim())/1000;
+			_temp="".PadLeft(128,' ');
+			mciSendString("status song length",_temp,128,IntPtr.Zero);
+			originTime[1]=int.Parse(_temp.Trim())/1000;
+			return originTime;
+		}
+		#endregion
+		
+		
+		#region 获取歌曲播放长度
+		
+		public string GetTotaTime()
+		{
+			string _temp="".PadLeft(128,' ');
+			mciSendString("status song length",_temp,128,IntPtr.Zero);
+			_temp=FormatTime(_temp);
+			//_temp=int.Parse(_temp)/1000;
+			return _temp;
+			
+		}
+		#endregion
+		
+		
+		#region  获取歌曲播放时间
+		public string GetSongTime()
+		{
+			string _temp="".PadLeft(128,' ');
+			
+			                          mciSendString("status song position",_temp,128,IntPtr.Zero);
+			                                 _temp=FormatTime(_temp);
+			                                             	
+			                                             	
+			                                     
+		
+			return _temp;
+		}
+		#endregion
 		#region 播放方法
 		public void playMusic(string path)
 		{
 			//CloseMusic();
 			OpenMusic(path);
 			mciSendString("play song",null,0,IntPtr.Zero);
+			string[] time=new string[2];
+			 
+			
 		}
 		
 		
@@ -132,6 +185,18 @@ namespace MusicPlayer.公共类
 				//pl.playMusic(path);
 			}
 			return path;
+		}
+		#endregion
+		
+		#region 格式化时间
+		
+		public string FormatTime(string time)
+		{
+			time=time.Trim();
+			int unFormatTime=int.Parse(time);
+			string min=(unFormatTime/1000/60).ToString();
+			string second=(unFormatTime/1000%60).ToString();
+			return min+":"+second;
 		}
 		#endregion
 		

@@ -36,6 +36,7 @@ namespace MusicPlayer
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.OnlineMusic = new System.Windows.Forms.Button();
@@ -50,6 +51,7 @@ namespace MusicPlayer
 			this.TotalTime = new System.Windows.Forms.Label();
 			this.NowTime = new System.Windows.Forms.Label();
 			this.trackTime = new System.Windows.Forms.TrackBar();
+			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.groupBox1.SuspendLayout();
 			this.TimeBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.trackTime)).BeginInit();
@@ -182,6 +184,11 @@ namespace MusicPlayer
 			this.trackTime.Name = "trackTime";
 			this.trackTime.Size = new System.Drawing.Size(194, 45);
 			this.trackTime.TabIndex = 0;
+			this.trackTime.TickStyle = System.Windows.Forms.TickStyle.None;
+			// 
+			// timer1
+			// 
+			this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
 			// 
 			// MainForm
 			// 
@@ -203,6 +210,7 @@ namespace MusicPlayer
 			((System.ComponentModel.ISupportInitialize)(this.trackTime)).EndInit();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.TrackBar trackTime;
 		private System.Windows.Forms.Label NowTime;
 		private System.Windows.Forms.Label TotalTime;
