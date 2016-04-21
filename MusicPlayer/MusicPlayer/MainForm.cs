@@ -128,6 +128,7 @@ namespace MusicPlayer
 			pl.CloseMusic();
 			
 			pl.playMusic(path);
+			PlayOrPause.Text="<>";
 			
 			
 		}
@@ -140,7 +141,16 @@ namespace MusicPlayer
 			pl.CloseMusic();
 			
 			pl.playMusic(path);
+			PlayOrPause.Text="<>";
 			
+			
+		}
+		
+		void PlayOrPauseClick(object sender, EventArgs e)
+		{
+			Button playButt=(Button)sender;
+			string status=playButt.Text;
+			playButt.Text=pl.PlayOrPause(status);
 			
 		}
 	}

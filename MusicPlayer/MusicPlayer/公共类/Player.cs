@@ -10,6 +10,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using MusicPlayer;
+using System.Text;
 
 namespace MusicPlayer.公共类
 {
@@ -20,13 +21,20 @@ namespace MusicPlayer.公共类
 	{
 		
 		#region 调用系统API
-		[DllImport("winmm.dll")]
+		[DllImport("winmm.dll",CharSet=CharSet.Unicode)]
 		private static extern long mciSendString(
 			string command,
 			string returnString,
 			int returnSize,
 			IntPtr hwndCallback
 		);
+		
+		
+		[DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+		private static extern int GetShortPathName(
+			string lpszLongPath,
+			string shortFile,
+			int cchBuffer);
 		#endregion
 		
 		public Player()
@@ -38,7 +46,7 @@ namespace MusicPlayer.公共类
 		
 		public void OpenMusic(string path)
 		{
-			mciSendString(string.Format("open \"{0}\" alias song",path ),null,0,IntPtr.Zero);
+			mciSendString(string.Format("open \"{0}\" type mpegvideo alias song",path ),null,0,IntPtr.Zero);
 			
 		}
 		#endregion
@@ -51,6 +59,30 @@ namespace MusicPlayer.公共类
 		}
 		
 		
+		#endregion
+		
+		
+		#region 暂停或开始音乐
+		
+		public string  PlayOrPause(string status)
+		{
+			
+			//string _Temp = "".PadLeft(128, ' ');
+			
+			//mciSendString("status song mode ",_Temp,_Temp.Length,IntPtr.Zero);
+			
+			//return _Temp.Trim();
+			if(status=="<>")
+			{
+				mciSendString("pause song",null,0,IntPtr.Zero);
+				return "==";
+			}
+			else
+			{
+				mciSendString("resume song",null,0,IntPtr.Zero);
+				return "<>";
+			}
+		}
 		#endregion
 		#region 关闭音乐
 		public void CloseMusic()

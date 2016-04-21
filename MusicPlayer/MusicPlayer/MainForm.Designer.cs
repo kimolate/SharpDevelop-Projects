@@ -137,6 +137,7 @@ namespace MusicPlayer
 			this.PlayOrPause.TabIndex = 3;
 			this.PlayOrPause.Text = "<>";
 			this.PlayOrPause.UseVisualStyleBackColor = true;
+			this.PlayOrPause.Click += new System.EventHandler(this.PlayOrPauseClick);
 			// 
 			// Next
 			// 
