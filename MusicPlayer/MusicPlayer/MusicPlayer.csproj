@@ -54,6 +54,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="公共类\DataProcess.cs" />
+    <Compile Include="公共类\Lrc.cs" />
     <Compile Include="公共类\Player.cs" />
   </ItemGroup>
   <ItemGroup>

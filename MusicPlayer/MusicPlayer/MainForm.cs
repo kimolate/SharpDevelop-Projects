@@ -30,6 +30,11 @@ namespace MusicPlayer
 		
 		private ResourceManager rm;
 		private Player pl;
+		private Lrc lrc;
+		private string path;
+		private delegate void ShowLrcdelegate(string time);
+		private ShowLrcdelegate myShowLrc;
+		Dictionary<string ,string> lrcDic;
 		
 		public MainForm()
 		{
@@ -84,7 +89,7 @@ namespace MusicPlayer
 		//获取音乐列表
 		public void GetMusicList(ListView LV)
 		{
-		
+			
 			
 			string path=Application.StartupPath+@"\Music";
 			var songs=Directory.GetFiles(path,"*.mp3");
@@ -107,7 +112,7 @@ namespace MusicPlayer
 			trackTime.Enabled=true;
 			pl=new Player();
 			ListView LV=(ListView)sender;
-			string path=Application.StartupPath+@"\Music\"+LV.SelectedItems[0].Text;
+			path=Application.StartupPath+@"\Music\"+LV.SelectedItems[0].Text;
 			//pl.OpenMusic(path);
 			pl.CloseMusic();//打开前，先关闭音乐
 			pl.playMusic(path);
@@ -159,12 +164,71 @@ namespace MusicPlayer
 			string songStatus=pl.GetSongStatus ();
 			if(songStatus.IndexOf("playing")!=-1)
 			{
-			NowTime.Text=pl.GetSongTime();
-			trackTime.Value=pl.GetOriginTime()[0];
-			trackTime.Maximum=pl.GetOriginTime()[1];
+				NowTime.Text=pl.GetSongTime();
+				trackTime.Value=pl.GetOriginTime()[0];
+				trackTime.Maximum=pl.GetOriginTime()[1];
+			}
+			string lrcPath=path.Substring(0,path.Length-3)+"lrc";
+			//if(File.Exists(lrcPath))
+			//{
+				lrcDic=lrc.ReadLrc(lrcPath);
+			//}
+			TotalTime.Text=pl.GetTotaTime();
+			foreach(string time in lrcDic.Keys)
+			{
+				if(time.IndexOf(NowTime.Text)!=-1)
+				{
+					
+					
+					myShowLrc(time);
+					
+					
+					
+				}
 			}
 			
-			TotalTime.Text=pl.GetTotaTime();
+			
+			
+		}
+		
+		
+		
+		void TrackTimeScroll(object sender, EventArgs e)
+		{
+			pl.SetSongTime(trackTime.Value*1000);
+		}
+		
+		void ShowLrc(string time)
+		{
+			
+			TextBox txtBox=(TextBox)panel1.Controls.Find("lrcTxtBox",true)[0];
+			txtBox.Show();
+			txtBox.Text=lrcDic[time];
+			
+			
+		}
+		
+		void MainFormLoad(object sender, EventArgs e)
+		{
+			myShowLrc=ShowLrc;
+			lrc=new Lrc();
+			
+			lrcDic=new Dictionary<string, string>();
+			
+			TextBox txtBox=new TextBox();
+			txtBox.Name="lrcTxtBox";
+			txtBox.Width=200;
+			txtBox.Location=new Point(20,100);
+			txtBox.BorderStyle=BorderStyle.None;
+			panel1.Controls.Add(txtBox);
+			txtBox.Hide();
+			
+			
+			
+			
+			
+			
+			
 			
 		}
 	}

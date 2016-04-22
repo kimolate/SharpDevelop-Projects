@@ -100,6 +100,15 @@ namespace MusicPlayer.公共类
 			return _temp;
 		}
 		#endregion
+		
+		
+		#region 设置播放位置
+		public void SetSongTime(int time)
+		{
+			mciSendString(string.Format("seek song to {0}",time),null,0,IntPtr.Zero);
+			mciSendString("play song",null,0,IntPtr.Zero);
+		}
+		#endregion
 		#region 播放方法
 		public void playMusic(string path)
 		{

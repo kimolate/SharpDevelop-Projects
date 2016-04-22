@@ -185,6 +185,7 @@ namespace MusicPlayer
 			this.trackTime.Size = new System.Drawing.Size(194, 45);
 			this.trackTime.TabIndex = 0;
 			this.trackTime.TickStyle = System.Windows.Forms.TickStyle.None;
+			this.trackTime.Scroll += new System.EventHandler(this.TrackTimeScroll);
 			// 
 			// timer1
 			// 
@@ -203,6 +204,7 @@ namespace MusicPlayer
 			this.Controls.Add(this.groupBox1);
 			this.Name = "MainForm";
 			this.Text = "MusicPlayer";
+			this.Load += new System.EventHandler(this.MainFormLoad);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.TimeBox.ResumeLayout(false);
