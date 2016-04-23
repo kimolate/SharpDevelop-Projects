@@ -69,6 +69,32 @@ namespace MusicPlayer
 		void YourselfMusicClick(object sender, EventArgs e)
 		{
 			panel1.Hide();
+			
+			//songList.Items.Add("kimolate");
+			ListView songList=ShowSongList();
+			GetMusicList(songList);
+			if((Button)sender==Search)
+			{
+				string searchSong=null;
+				foreach(ListViewItem songLine in songList.Items)
+				{
+					if(songLine.SubItems[0].ToString().IndexOf(SearchMusicName.Text)!=-1)
+					{
+						searchSong=songLine.SubItems[0].Text;
+						break;
+					}
+				}
+				songList.Clear();
+				songList=ShowSongList();
+				if(searchSong!=null)
+				{
+				songList.Items.Add(new ListViewItem(searchSong));
+				}
+			}
+			this.Controls.Add(songList);
+		}
+		public ListView ShowSongList()
+		{
 			ListView songList=new ListView();
 			songList.Name="songList";
 			songList.View=View.Details;
@@ -83,9 +109,7 @@ namespace MusicPlayer
 			songList.Columns.Add(ch);
 			songList.Columns.Add("歌手",80,HorizontalAlignment.Left);
 			songList.Columns.Add("时长",80,HorizontalAlignment.Left);
-			//songList.Items.Add("kimolate");
-			GetMusicList(songList);
-			this.Controls.Add(songList);
+			return songList;
 		}
 		//获取音乐列表
 		public void GetMusicList(ListView LV)
@@ -208,17 +232,20 @@ namespace MusicPlayer
 		
 		void ShowLrc(string time)
 		{
-			
-			//Graphics grap=Graphics.FromImage(startPic);
-			
+			Bitmap bmap=new Bitmap(startPic,panel1.Width,panel1.Height);
+			Graphics grap=Graphics.FromImage(bmap);
+			grap.DrawString(string.Format("{0}",lrcDic[time]), new Font(FontFamily.GenericMonospace, 12f), Brushes.Red, new PointF(10,100));
+
 			
 			
 			
 			Graphics g=panel1.CreateGraphics();
-			g.DrawImage(startPic,0,0,panel1.Width,panel1.Height);
-			g.DrawString(string.Format("{0}",lrcDic[time]), new Font(FontFamily.GenericMonospace, 12f), Brushes.Red, new PointF(10,20));
+			g.DrawImage(bmap,0,0);
 			//panel1.Controls.Add(LrcPanel);
-			//grap.Dispose();
+			//startPic.Dispose();
+			
+			grap.Dispose();
+			bmap.Dispose();
 			
 			
 			
@@ -252,5 +279,6 @@ namespace MusicPlayer
 		
 		
 		
+	
 	}
 }

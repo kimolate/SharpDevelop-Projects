@@ -105,6 +105,7 @@ namespace MusicPlayer
 			this.Search.TabIndex = 1;
 			this.Search.Text = "搜索";
 			this.Search.UseVisualStyleBackColor = true;
+			this.Search.Click += new System.EventHandler(this.YourselfMusicClick);
 			// 
 			// SearchMusicName
 			// 
@@ -202,6 +203,7 @@ namespace MusicPlayer
 			this.Controls.Add(this.Previous);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.groupBox1);
+			this.MaximizeBox = false;
 			this.Name = "MainForm";
 			this.Text = "MusicPlayer";
 			this.Load += new System.EventHandler(this.MainFormLoad);

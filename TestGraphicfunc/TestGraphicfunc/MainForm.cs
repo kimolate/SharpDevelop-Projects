@@ -24,32 +24,27 @@ namespace TestGraphicfunc
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
-			
+			timer1.Tick+= Button1Click;
+			timer1.Start();
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
+			panel1.BackColor=Color.FromArgb(120,0,0,0);
 		}
 		
 		void Button1Click(object sender, EventArgs e)
 		{
-			Panel p = new Panel();
-			p.Location = new Point(10, 10);
-			p.Size = new Size(200, 200);
-			p.Paint+=new PaintEventHandler(p_Paint);
-			p.Click+=new EventHandler(p_Click);
-			this.Controls.Add(p);
+			Graphics g=panel1.CreateGraphics();
+			g.DrawString("button", new Font(FontFamily.GenericMonospace, 12f), Brushes.Red, new PointF(0,0));
+			panel1.Refresh();
 		}
+
 		
-		void p_Paint(object sender, PaintEventArgs e)
-		{
-			Graphics g = e.Graphics;
-			g.DrawRectangle(Pens.Blue,new Rectangle(0,0,((Control)sender).Width-2,((Control)sender).Height-2));
-			
-			g.DrawString("button", new Font(FontFamily.GenericMonospace, 12f), Brushes.Red, new PointF(10, 20));
-		}
-		void p_Click(object sender, EventArgs e)
-		{
-			MessageBox.Show("这是panel的点击事件");
-		}
+		
+		
+		
 	}
+	
+	
 }
+
