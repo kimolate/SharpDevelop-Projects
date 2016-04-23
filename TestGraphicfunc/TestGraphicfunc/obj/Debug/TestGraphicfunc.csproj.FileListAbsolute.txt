@@ -1,0 +1,7 @@
+C:\Users\ki\Documents\SharpDevelop Projects\TestGraphicfunc\TestGraphicfunc\bin\Debug\TestGraphicfunc.exe
+C:\Users\ki\Documents\SharpDevelop Projects\TestGraphicfunc\TestGraphicfunc\bin\Debug\TestGraphicfunc.pdb
+C:\Users\ki\Documents\SharpDevelop Projects\TestGraphicfunc\TestGraphicfunc\obj\Debug\TestGraphicfunc.csprojResolveAssemblyReference.cache
+C:\Users\ki\Documents\SharpDevelop Projects\TestGraphicfunc\TestGraphicfunc\obj\Debug\TestGraphicfunc.MainForm.resources
+C:\Users\ki\Documents\SharpDevelop Projects\TestGraphicfunc\TestGraphicfunc\obj\Debug\TestGraphicfunc.csproj.GenerateResource.Cache
+C:\Users\ki\Documents\SharpDevelop Projects\TestGraphicfunc\TestGraphicfunc\obj\Debug\TestGraphicfunc.exe
+C:\Users\ki\Documents\SharpDevelop Projects\TestGraphicfunc\TestGraphicfunc\obj\Debug\TestGraphicfunc.pdb

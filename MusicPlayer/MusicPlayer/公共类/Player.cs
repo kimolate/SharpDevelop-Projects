@@ -91,12 +91,12 @@ namespace MusicPlayer.公共类
 		{
 			string _temp="".PadLeft(128,' ');
 			
-			                          mciSendString("status song position",_temp,128,IntPtr.Zero);
-			                                 _temp=FormatTime(_temp);
-			                                             	
-			                                             	
-			                                     
-		
+			mciSendString("status song position",_temp,128,IntPtr.Zero);
+			_temp=FormatTime(_temp);
+			
+			
+			
+			
 			return _temp;
 		}
 		#endregion
@@ -116,7 +116,7 @@ namespace MusicPlayer.公共类
 			OpenMusic(path);
 			mciSendString("play song",null,0,IntPtr.Zero);
 			string[] time=new string[2];
-			 
+			
 			
 		}
 		
@@ -203,8 +203,8 @@ namespace MusicPlayer.公共类
 		{
 			time=time.Trim();
 			int unFormatTime=int.Parse(time);
-			string min=(unFormatTime/1000/60).ToString();
-			string second=(unFormatTime/1000%60).ToString();
+			string min=string.Format("{0:00}",(unFormatTime/1000/60));
+			string second=string.Format("{0:00}",(unFormatTime/1000%60));
 			return min+":"+second;
 		}
 		#endregion

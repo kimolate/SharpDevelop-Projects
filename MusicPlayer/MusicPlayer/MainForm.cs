@@ -35,6 +35,7 @@ namespace MusicPlayer
 		private delegate void ShowLrcdelegate(string time);
 		private ShowLrcdelegate myShowLrc;
 		Dictionary<string ,string> lrcDic;
+		private Image startPic;
 		
 		public MainForm()
 		{
@@ -54,7 +55,7 @@ namespace MusicPlayer
 			NowTime.Text="";
 			TotalTime.Text="";
 			rm=new ResourceManager("MusicPlayer.Resource1",this.GetType().Assembly);
-			Image startPic=(Image)(rm.GetObject("StartPicture"));
+			startPic=(Image)(rm.GetObject("StartPicture"));
 			if(startPic!=null)
 			{
 				panel1.BackgroundImage=startPic;
@@ -119,6 +120,7 @@ namespace MusicPlayer
 			timer1.Start();
 			LV.Hide();
 			panel1.Show();
+			panel1.Refresh();
 			//MessageBox.Show("hello");
 		}
 		//单击切换到下一首
@@ -126,12 +128,13 @@ namespace MusicPlayer
 		{
 			//Control ctr=this.Controls.Find("songList",true)[0];
 			ListView LV=this.Controls.Find("songList",true)[0] as ListView;
-			string path=pl.Next(LV);
+			path=pl.Next(LV);
 			timer1.Stop();
 			pl.CloseMusic();
 			pl.playMusic(path);
 			timer1.Start();
 			PlayOrPause.Text="<>";
+			panel1.Refresh();
 			
 			
 		}
@@ -140,13 +143,14 @@ namespace MusicPlayer
 		void PreviousClick(object sender, EventArgs e)
 		{
 			ListView LV=this.Controls.Find("songList",true)[0] as ListView;
-			string path=pl.Previous(LV);
+			path=pl.Previous(LV);
 			timer1.Stop();
 			pl.CloseMusic();
 			
 			pl.playMusic(path);
 			timer1.Start();
 			PlayOrPause.Text="<>";
+			panel1.Refresh();
 			
 			
 		}
@@ -168,22 +172,26 @@ namespace MusicPlayer
 				trackTime.Value=pl.GetOriginTime()[0];
 				trackTime.Maximum=pl.GetOriginTime()[1];
 			}
-			string lrcPath=path.Substring(0,path.Length-3)+"lrc";
-			//if(File.Exists(lrcPath))
-			//{
-				lrcDic=lrc.ReadLrc(lrcPath);
-			//}
 			TotalTime.Text=pl.GetTotaTime();
-			foreach(string time in lrcDic.Keys)
+			string lrcPath=path.Substring(0,path.Length-3)+"lrc";
+			if(File.Exists(lrcPath))
 			{
-				if(time.IndexOf(NowTime.Text)!=-1)
+				lrcDic=lrc.ReadLrc(lrcPath);
+				
+				
+				foreach(string time in lrcDic.Keys)
 				{
-					
-					
-					myShowLrc(time);
-					
-					
-					
+					if(time.IndexOf(NowTime.Text)!=-1)
+					{
+						
+						
+						myShowLrc(time);
+						
+						break;
+						
+						
+						
+					}
 				}
 			}
 			
@@ -201,9 +209,17 @@ namespace MusicPlayer
 		void ShowLrc(string time)
 		{
 			
-			TextBox txtBox=(TextBox)panel1.Controls.Find("lrcTxtBox",true)[0];
-			txtBox.Show();
-			txtBox.Text=lrcDic[time];
+			//Graphics grap=Graphics.FromImage(startPic);
+			
+			
+			
+			
+			Graphics g=panel1.CreateGraphics();
+			g.DrawImage(startPic,0,0,panel1.Width,panel1.Height);
+			g.DrawString(string.Format("{0}",lrcDic[time]), new Font(FontFamily.GenericMonospace, 12f), Brushes.Red, new PointF(10,20));
+			//panel1.Controls.Add(LrcPanel);
+			//grap.Dispose();
+			
 			
 			
 		}
@@ -219,7 +235,9 @@ namespace MusicPlayer
 			txtBox.Name="lrcTxtBox";
 			txtBox.Width=200;
 			txtBox.Location=new Point(20,100);
+			
 			txtBox.BorderStyle=BorderStyle.None;
+			
 			panel1.Controls.Add(txtBox);
 			txtBox.Hide();
 			
@@ -231,5 +249,8 @@ namespace MusicPlayer
 			
 			
 		}
+		
+		
+		
 	}
 }
