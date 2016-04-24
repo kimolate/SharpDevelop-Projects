@@ -31,11 +31,13 @@ namespace MusicPlayer
 		private ResourceManager rm;
 		private Player pl;
 		private Lrc lrc;
+		private DataProcess DataSong;
 		private string path;
 		private delegate void ShowLrcdelegate(string time);
 		private ShowLrcdelegate myShowLrc;
 		Dictionary<string ,string> lrcDic;
 		private Image startPic;
+		private string connectionString;
 		
 		public MainForm()
 		{
@@ -54,6 +56,7 @@ namespace MusicPlayer
 			trackTime.Enabled=false;
 			NowTime.Text="";
 			TotalTime.Text="";
+			path=Application.StartupPath+@"\Music";
 			rm=new ResourceManager("MusicPlayer.Resource1",this.GetType().Assembly);
 			startPic=(Image)(rm.GetObject("StartPicture"));
 			if(startPic!=null)
@@ -72,7 +75,25 @@ namespace MusicPlayer
 			
 			//songList.Items.Add("kimolate");
 			ListView songList=ShowSongList();
+			
+			string originPath=Application.StartupPath+@"\Music";
+			path=originPath;
 			GetMusicList(songList);
+			List<string> songs=new List<string>();
+			if((Button)sender==OnlineMusic)
+			{
+				songList.Items.Clear();
+				DataSong=new DataProcess();
+				connectionString =string.Format("Data Source={0};Pooling=true;FailIfMissing=false",Application.StartupPath+"\\Song.db");
+				songs=DataSong.ConnectSQLite(connectionString);
+				foreach(string songPath in songs)
+				{
+					string song=songPath.Substring(songPath.LastIndexOf('\\')+1);
+					songList.Items.Add(new ListViewItem(song));
+				}
+				path=songs[0].Substring(0,songs[0].LastIndexOf('\\'));
+			}
+			
 			if((Button)sender==Search)
 			{
 				string searchSong=null;
@@ -92,6 +113,7 @@ namespace MusicPlayer
 				}
 			}
 			this.Controls.Add(songList);
+			
 		}
 		public ListView ShowSongList()
 		{
@@ -111,12 +133,15 @@ namespace MusicPlayer
 			songList.Columns.Add("时长",80,HorizontalAlignment.Left);
 			return songList;
 		}
+		
+		
+		
 		//获取音乐列表
 		public void GetMusicList(ListView LV)
 		{
 			
 			
-			string path=Application.StartupPath+@"\Music";
+		
 			var songs=Directory.GetFiles(path,"*.mp3");
 			foreach(var song in songs)
 			{
@@ -137,7 +162,7 @@ namespace MusicPlayer
 			trackTime.Enabled=true;
 			pl=new Player();
 			ListView LV=(ListView)sender;
-			path=Application.StartupPath+@"\Music\"+LV.SelectedItems[0].Text;
+			path=path+"\\"+LV.SelectedItems[0].Text;
 			//pl.OpenMusic(path);
 			pl.CloseMusic();//打开前，先关闭音乐
 			pl.playMusic(path);

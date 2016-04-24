@@ -86,6 +86,7 @@ namespace MusicPlayer
 			this.OnlineMusic.TabIndex = 3;
 			this.OnlineMusic.Text = "云音乐";
 			this.OnlineMusic.UseVisualStyleBackColor = true;
+			this.OnlineMusic.Click += new System.EventHandler(this.YourselfMusicClick);
 			// 
 			// YourselfMusic
 			// 
