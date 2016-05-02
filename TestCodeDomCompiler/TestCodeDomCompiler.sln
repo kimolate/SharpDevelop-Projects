@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 4.4
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCodeDomCompiler", "TestCodeDomCompiler\TestCodeDomCompiler.csproj", "{555ED054-2A13-4C3F-B0D1-B0A6C09ABABA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{D64C13F6-22E2-49A0-BFAD-9869AA4F268C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{555ED054-2A13-4C3F-B0D1-B0A6C09ABABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{555ED054-2A13-4C3F-B0D1-B0A6C09ABABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{555ED054-2A13-4C3F-B0D1-B0A6C09ABABA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{555ED054-2A13-4C3F-B0D1-B0A6C09ABABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D64C13F6-22E2-49A0-BFAD-9869AA4F268C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D64C13F6-22E2-49A0-BFAD-9869AA4F268C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D64C13F6-22E2-49A0-BFAD-9869AA4F268C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D64C13F6-22E2-49A0-BFAD-9869AA4F268C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+EndGlobal

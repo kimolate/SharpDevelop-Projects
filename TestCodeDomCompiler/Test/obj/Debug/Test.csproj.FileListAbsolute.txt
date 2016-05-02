@@ -1,0 +1,5 @@
+C:\Users\ki\Documents\SharpDevelop Projects\TestCodeDomCompiler\Test\bin\Debug\Test.exe
+C:\Users\ki\Documents\SharpDevelop Projects\TestCodeDomCompiler\Test\bin\Debug\Test.pdb
+C:\Users\ki\Documents\SharpDevelop Projects\TestCodeDomCompiler\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\ki\Documents\SharpDevelop Projects\TestCodeDomCompiler\Test\obj\Debug\Test.exe
+C:\Users\ki\Documents\SharpDevelop Projects\TestCodeDomCompiler\Test\obj\Debug\Test.pdb

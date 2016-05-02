@@ -1,0 +1,5 @@
+C:\Users\ki\Documents\SharpDevelop Projects\TestQueue\TestBitArray\bin\Debug\TestBitArray.pdb
+C:\Users\ki\Documents\SharpDevelop Projects\TestQueue\TestBitArray\obj\Debug\TestBitArray.csprojResolveAssemblyReference.cache
+C:\Users\ki\Documents\SharpDevelop Projects\TestQueue\TestBitArray\obj\Debug\TestBitArray.pdb
+C:\Users\ki\Documents\SharpDevelop Projects\TestQueue\TestBitArray\bin\Debug\TestBitArray.exe
+C:\Users\ki\Documents\SharpDevelop Projects\TestQueue\TestBitArray\obj\Debug\TestBitArray.exe
