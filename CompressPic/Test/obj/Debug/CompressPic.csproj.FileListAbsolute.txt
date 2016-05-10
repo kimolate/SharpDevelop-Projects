@@ -1,0 +1,7 @@
+C:\Users\ki\Documents\SharpDevelop Projects\Test\Test\obj\Debug\CompressPic.csprojResolveAssemblyReference.cache
+C:\Users\ki\Documents\SharpDevelop Projects\Test\Test\obj\Debug\CompressPic.Form1.resources
+C:\Users\ki\Documents\SharpDevelop Projects\Test\Test\obj\Debug\CompressPic.csproj.GenerateResource.Cache
+C:\Users\ki\Documents\SharpDevelop Projects\Test\Test\obj\Debug\Test.exe
+C:\Users\ki\Documents\SharpDevelop Projects\Test\Test\obj\Debug\Test.pdb
+C:\Users\ki\Documents\SharpDevelop Projects\Test\Test\bin\Debug\Test.exe
+C:\Users\ki\Documents\SharpDevelop Projects\Test\Test\bin\Debug\Test.pdb
