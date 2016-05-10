@@ -37,7 +37,7 @@ namespace CompressPic
             if (path != "")
             {
                 
-               Process exep= Process.Start("C:\\Program Files\\2345Soft\\HaoZip\\HaoZipC.exe", string.Format("a -tzip  {0}Pic{1}.zip -pleimingkai130262 {2}", savepath + "\\", tag, path));
+               Process exep= Process.Start("C:\\Program Files\\2345Soft\\HaoZip\\HaoZipC.exe", string.Format("a -tzip  {0}Pic{1}.zip -psecret {2}", savepath + "\\", tag, path));
                 //_mre.WaitOne();
                 exep.WaitForExit();//阻塞线程，直至上一个外部程序线程退出
             }
