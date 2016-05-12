@@ -20,9 +20,9 @@ namespace CompressPic
 	{
 		
 		Compress CPress;
-       
+		
 
-        public Form1()
+		public Form1()
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -39,18 +39,31 @@ namespace CompressPic
 
 			try
 			{
-                CPress = new Compress(ComprePathTB.Text, SavePathTB.Text);
-                List<string> fileUnit = Compress.CreateFileParam();
+				CPress = new Compress{_CompressPath=ComprePathTB.Text,_savepath=SavePathTB.Text,_path="",_tag=0};
+				List<string> fileUnit = CPress.CreateFileParam();
 				int count=0;
-               foreach(string path in fileUnit)
-                {
-                   
-                    CPress.compress(path, count);
-                  
-                    count++;
+                progressBar1.Maximum = fileUnit.Count;
+                progressBar1.Show();
+				foreach(string path in fileUnit)
+				{
+			
+				
+					CPress._path=path;
+					CPress._tag=count;
+                    CPress.compress();
+					Thread thread;
+					thread=new Thread(new ThreadStart(CPress.compress));
+					
+					thread.Start();
+					
+					
+					count++;
+				
+					CPress._savepath=SavePathTB.Text;
 
+                    progressBar1.Value = count;
 
-                }
+				}
 				
 				
 				
@@ -64,8 +77,12 @@ namespace CompressPic
 		
 		void Form1Load(object sender, EventArgs e)
 		{
-			ComprePathTB.Text="C:\\Users\\ki\\OneDrive";//初始化路径
-			SavePathTB.Text="C:\\Users\\ki\\Documents\\PicBackUp";
+			ComprePathTB.Text="C:\\Users\\ki\\Pictures";//初始化路径
+			SavePathTB.Text="C:\\Users\\ki\\Documents\\Temp";
+            progressBar1.Minimum = 0;
+            progressBar1.Step = 1;
+            progressBar1.Hide();
+            
 			//CPress=new Compress(ComprePathTB.Text,SavePathTB.Text);
 			
 		}

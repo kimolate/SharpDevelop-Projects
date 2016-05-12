@@ -43,6 +43,7 @@ namespace CompressPic
             this.ComprePatnLb = new System.Windows.Forms.Label();
             this.SavePatnLb = new System.Windows.Forms.Label();
             this.SavePathTB = new System.Windows.Forms.TextBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // CompressBn
@@ -85,11 +86,19 @@ namespace CompressPic
             this.SavePathTB.Size = new System.Drawing.Size(99, 21);
             this.SavePathTB.TabIndex = 4;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(15, 61);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(257, 23);
+            this.progressBar1.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.SavePathTB);
             this.Controls.Add(this.SavePatnLb);
             this.Controls.Add(this.ComprePatnLb);
@@ -100,11 +109,13 @@ namespace CompressPic
             this.Load += new System.EventHandler(this.Form1Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
         private System.Windows.Forms.TextBox SavePathTB;
         private System.Windows.Forms.Label SavePatnLb;
         private System.Windows.Forms.Label ComprePatnLb;
         private System.Windows.Forms.TextBox ComprePathTB;
         private System.Windows.Forms.Button CompressBn;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
